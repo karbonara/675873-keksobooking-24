@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Артем Волков](https://up.htmlacademy.ru/javascript/24/user/675873).
-* Наставник: `Неизвестно`.
+* Наставник: [Дмитрий Гуляев](https://htmlacademy.ru/profile/dima).
 
 ---
 
