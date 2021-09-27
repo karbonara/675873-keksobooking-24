@@ -1,25 +1,19 @@
-const maxString = 100;
-const minString = 0;
-const integer = 1;
+const MAX_STRING = 100;
+const MIN_STRING = 0;
+const INTEGER_NUMBER = 1;
 
-const getCoordinates = function (min, max) {
+const getRandomCoordinates = (min, max) => {
   if (max > min) {
     const array = Math.floor(Math.random() * (max - min));
     return array;
-  } else {
-    return false;
   }
 };
-getCoordinates(minString, maxString);
+getRandomCoordinates(MIN_STRING, MAX_STRING);
 
-const getRandom = function (min, max, signs) {
+const getRandomNumber = (min, max, signs) => {
   if (min >= min) {
     const array = (Math.random() * (max - min));
     return array.toFixed(signs);
-  } else {
-    return false;
   }
 };
-getRandom(minString, maxString, integer);
-
-
+getRandomNumber(MIN_STRING, MAX_STRING, INTEGER_NUMBER);
