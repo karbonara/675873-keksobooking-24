@@ -16,4 +16,5 @@ const getRandomNumber = (min, max, signs) => {
     return array.toFixed(signs);
   }
 };
+
 getRandomNumber(MIN_STRING, MAX_STRING, INTEGER_NUMBER);
