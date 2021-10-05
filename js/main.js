@@ -1,6 +1,4 @@
-// const MAX_STRING = 100;
-// const MIN_STRING = 0;
-const INTEGER_NUMBER = 5;
+const INTEGER_NUMBERS = 5;
 
 const getRandomCoordinates = (min, max) => {
   if (max > min) {
@@ -16,17 +14,17 @@ function getRandomNumber(from, to, digits = 1) {
   return result.toFixed(digits);
 }
 
-const MIN_AVATAR = 0;
-const MAX_AVATAR = 10;
-const TITLE = ['Однокомнатная квартира', 'Двухкомнатная квартира', 'Трехкомнатная квартира', 'Студия'];
-const PRICE = [1500, 2000, 2500, 3500, 5500, 6500];
-const TYPE = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
+const MIN_AVATARS = 0;
+const MAX_AVATARS = 10;
+const TITLES = ['Однокомнатная квартира', 'Двухкомнатная квартира', 'Трехкомнатная квартира', 'Студия'];
+const PRICES = [1500, 2000, 2500, 3500, 5500, 6500];
+const TYPES = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 const ROOMS = [1, 2, 3, 4];
 const GUESTS = [2, 3, 4, 5, 6];
-const CHECKIN = ['12:00', '13:00', '14:00'];
-const CHECKOUT = ['12:00', '13:00', '14:00'];
+const CHECKINS = ['12:00', '13:00', '14:00'];
+const CHECKOUTS = ['12:00', '13:00', '14:00'];
 const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
-const DESCRIPTION = ['Уютная квартира', 'С видом на улицу', 'Можно с животными'];
+const DESCRIPTIONS = ['Уютная квартира', 'С видом на улицу', 'Можно с животными'];
 const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
@@ -43,40 +41,39 @@ const getRandomArrayElements = function (elem) {
   return elem[getRandomCoordinates(0, elem.length)];
 };
 
-const RANDOM_AVATAR = getRandomCoordinates(MIN_AVATAR, MAX_AVATAR);
+const randomAvatar = getRandomCoordinates(MIN_AVATARS, MAX_AVATARS);
 
-const LAT = getRandomNumber(MIN_LAT, MAX_LAT, INTEGER_NUMBER);
-const LNG = getRandomNumber(MIN_LNG, MAX_LNG, INTEGER_NUMBER);
+const lat = getRandomNumber(MIN_LAT, MAX_LAT, INTEGER_NUMBERS);
+const lng = getRandomNumber(MIN_LNG, MAX_LNG, INTEGER_NUMBERS);
 
 const user = function () {
   return {
     author: {
-      avatar: RANDOM_AVATAR < MAX_AVATAR ? `img/avatars/user0${RANDOM_AVATAR}.png` : `img/avatars/user${RANDOM_AVATAR}.png`,
+      avatar: randomAvatar < MAX_AVATARS ? `img/avatars/user0${randomAvatar}.png` : `img/avatars/user${randomAvatar}.png`,
     },
     offer: {
-      title: getRandomArrayElements(TITLE),
-      address: `${LAT}, ${LNG}`,
-      price: getRandomArrayElements(PRICE),
-      type: getRandomArrayElements(TYPE),
+      title: getRandomArrayElements(TITLES),
+      address: `${lat}, ${lng}`,
+      price: getRandomArrayElements(PRICES),
+      type: getRandomArrayElements(TYPES),
       rooms: getRandomArrayElements(ROOMS),
       guests: getRandomArrayElements(GUESTS),
-      checkin: getRandomArrayElements(CHECKIN),
-      checkout: getRandomArrayElements(CHECKOUT),
+      checkin: getRandomArrayElements(CHECKINS),
+      checkout: getRandomArrayElements(CHECKOUTS),
       features: getRandomArrayElements(FEATURES),
-      description: getRandomArrayElements(DESCRIPTION),
+      description: getRandomArrayElements(DESCRIPTIONS),
       photos: getRandomArrayElements(PHOTOS),
     },
     location: {
-      lat: LAT,
-      lng: LNG,
+      lat: lat,
+      lng: lng,
     },
   };
 };
 
 // Создает несколько объектов
-// const newArray = Array.from({ length: NUMBER_OBJECTS }, user);
-// console.log(newArray);
-const newArray = function () {
-  return Array.from({ length: NUMBER_OBJECTS }, user);
+const newArray = function (number, users) {
+  return Array.from({ length: number }, users);
 };
-newArray();
+newArray(NUMBER_OBJECTS, user);
+
