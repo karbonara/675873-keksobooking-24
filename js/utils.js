@@ -17,10 +17,9 @@ function getRandomNumber(from, to, digits = 1) {
   Принимает 1 параметр - elem
   return случайный элемент этого массива, вызывая функцию getRandomCoordinates, в которую передается
   2 параметра
-    number - Минимальное значение
-    number - Максимальное значение (Длина этого массива - 1)
+    min - Минимальное значение
+    max - Максимальное значение (Длина этого массива - 1)
 */
-
 const getRandomArrayElements = function (elem) {
   return elem[getRandomCoordinates(0, elem.length)];
 };

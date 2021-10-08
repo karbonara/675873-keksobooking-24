@@ -23,10 +23,10 @@ const MIN_LAT = 35.65000;
 const MAX_LAT = 35.70000;
 const NUMBER_OBJECTS = 10;
 
-// Генерирует случайные Аватарки пользователя
+// Переменная со случайными аватарками пользователя
 const randomAvatar = getRandomCoordinates(MIN_AVATARS, MAX_AVATARS);
 
-// Генерирует случайные координаты
+// Переменные со случайными координатами
 const lat = getRandomNumber(MIN_LAT, MAX_LAT, INTEGER_NUMBERS);
 const lng = getRandomNumber(MIN_LNG, MAX_LNG, INTEGER_NUMBERS);
 
@@ -55,7 +55,12 @@ const printUser = function () {
   };
 };
 
-// Создает несколько объектов
+/*
+Создает новых пользователей
+return принимает 2 параметра
+ number - число объектов (пользователей)
+ users - функция
+*/
 const createNewUsers = function (number, users) {
   return Array.from({ length: number }, users);
 };
