@@ -1,5 +1,5 @@
 import { createNewUsers, NUMBER_OBJECTS, printUser } from './data.js';
-// createNewUsers();
+
 
 // Создание шаблона объявления
 const createCard = () => {
