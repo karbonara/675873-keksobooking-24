@@ -1,10 +1,6 @@
 // Функция взята из интернета и доработана
 // Источник - https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_random
 
-<<<<<<< HEAD
-=======
-// eslint-disable-next-line id-length
->>>>>>> 37873c95d76f0c5f9a0175542c95b596a5f5f5c2
 function getRandomPositiveFloat(a, b, digits = 1) {
   // Чтобы не заставлять пользователя нашей функции помнить порядок аргументов,
   // реализуем поддержку передачи минимального и максимального значения в любом порядке,
