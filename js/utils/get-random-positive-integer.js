@@ -1,6 +1,10 @@
 // Функция взята из интернета и доработана
 // Источник - https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_random
 
+<<<<<<< HEAD
+=======
+// eslint-disable-next-line id-length
+>>>>>>> 37873c95d76f0c5f9a0175542c95b596a5f5f5c2
 function getRandomPositiveInteger(a, b) {
   // Чтобы не заставлять пользователя нашей функции помнить порядок аргументов,
   // реализуем поддержку передачи минимального и максимального значения в любом порядке,
@@ -26,4 +30,9 @@ function getRandomPositiveInteger(a, b) {
   // потому что Math.random() генерирует только дробные числа и ноль.
   return Math.floor(result);
 }
+<<<<<<< HEAD
 getRandomPositiveInteger();
+=======
+// eslint-disable-next-line no-undef
+getRandomPositiveInteger(a, b);
+>>>>>>> 37873c95d76f0c5f9a0175542c95b596a5f5f5c2
