@@ -11,10 +11,10 @@ const inactiveStateForm = () => {
   const mapFilters = document.querySelector('.map__filters');
   mapFilters.classList.add('ad-form--disabled');
 
-  const mapFilterItems = document.querySelectorAll('.map__filter')
-  for (let i = 0; i < mapFilterItems.length; i++) {
-    const mapFilterItem = mapFilterItems[i]
-    mapFilterItem.classList.add('disabled');
+  const mapFilterElement = document.querySelectorAll('.map__filter')
+  for (let i = 0; i < mapFilterElement.length; i++) {
+    const mapFilterElements = mapFilterElement[i]
+    mapFilterElements.classList.add('disabled');
   }
 };
 const activeStateForm = () => {
