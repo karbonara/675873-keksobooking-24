@@ -6,52 +6,70 @@ const createCard = () => {
   const cardTemplate = document.querySelector('#card')
     .content
     .querySelector('.popup');
-
   const cardUsers = createNewUsers(NUMBER_OBJECTS, printUser);
-
+  const cardListFragment = document.createDocumentFragment();
   // const typeObj = [
-  //   { flat: 'Квартира' },
-  //   { bungalow: 'Бунгало' },
-  //   { house: 'Дом' },
-  //   { palace: 'Дворец' },
-  //   { hotel: 'Отель' },
+  //   ['flat', 'Квартира1'],
+  //   ['bungalow', 'Бунгало'],
+  //   ['house', 'Дом'],
+  //   ['palace', 'Дворец'],
+  //   ['hotel', 'Отель'],
   // ];
-  // const newType = typeObj.map((person) => person.flat);
-  // console.log(newType);
-  const typeObj = [
-    ['flat', 'Квартира'],
-    ['bungalow', 'Бунгало'],
-    ['house', 'Дом'],
-    ['palace', 'Дворец'],
-    ['hotel', 'Отель'],
-  ];
-  const map = new Map(typeObj);
-
-  const maps = function () {
-    for (const val of map.values()) {
-      // eslint-disable-next-line no-console
-      console.log(val);
-    }
+  // const map = new Map(typeObj);
+  // const maps = function (offer) {
+  //   for (const val of map.values()) {
+  //     return val;
+  //   }
+  // };
+  const typeHousing = {
+    flat: 'Квартира',
+    bungalow: 'Бунгало',
+    house: 'Дом',
+    palace: 'Дворец',
+    hotel: 'Отель',
   };
-  // maps();
-
   cardUsers.forEach(({ author, offer }) => {
-
     const cardElement = cardTemplate.cloneNode(true);
-    cardElement.querySelector('.popup__avatar').src = author.avatar;
-    cardElement.querySelector('.popup__title').textContent = offer.title;
-    cardElement.querySelector('.popup__text--address').textContent = offer.address;
-    cardElement.querySelector('.popup__text--price').textContent = `${offer.price} ₽/ночь`;
-    cardElement.querySelector('.popup__type').textContent = `${offer.type} ${maps()}`;
-    cardElement.querySelector('.popup__text--capacity').textContent = `${offer.rooms} комнаты для ${offer.guests} гостей`;
-    cardElement.querySelector('.popup__text--time').textContent = `Заезд после ${offer.checkin} , выезд до ${offer.checkout}`;
-    cardElement.querySelector('.popup__features').textContent = offer.features;
-    cardElement.querySelector('.popup__description').textContent = offer.description;
-    cardElement.querySelector('.popup__photo').src = offer.photos;
-    mapElement.appendChild(cardElement);
-  });
-};
 
+    const avatar = cardElement.querySelector('.popup__avatar');
+    avatar.src = author.avatar;
+
+    const title = cardElement.querySelector('.popup__title');
+    title.textContent = offer.title;
+
+    const adress = cardElement.querySelector('.popup__text--address');
+    adress.textContent = offer.address;
+
+    const price = cardElement.querySelector('.popup__text--price');
+    price.textContent = `${offer.price} ₽/ночь`;
+
+    const type = cardElement.querySelector('.popup__type');
+    type.textContent = typeHousing[offer.type];
+
+    const rooms = cardElement.querySelector('.popup__text--capacity');
+    rooms.textContent = `${offer.rooms} комнаты для ${offer.guests} гостей`;
+
+    const textTime = cardElement.querySelector('.popup__text--time');
+    textTime.textContent = `Заезд после ${offer.checkin} , выезд до ${offer.checkout}`;
+
+    const features = cardElement.querySelectorAll('.popup__feature');
+    features.textContent = offer.features;
+    features.forEach((elem) => {
+      const featuresItem = elem.className.split('--')[1];
+      // Проверяет наличие данных
+      if (!offer.features.includes(featuresItem)) { elem.remove(); }
+    });
+
+    const description = cardElement.querySelector('.popup__description');
+    description.textContent = offer.description || description.remove();
+
+    const photos = cardElement.querySelector('.popup__photo');
+    photos.src = offer.photos;
+
+    cardListFragment.appendChild(cardElement);
+  });
+  mapElement.appendChild(cardListFragment);
+};
 
 export { createCard };
 
