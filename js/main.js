@@ -1,3 +1,4 @@
-import { createNewUsers } from './data.js';
-createNewUsers();
+import { createCard } from './card.js';
+createCard();
+
 
