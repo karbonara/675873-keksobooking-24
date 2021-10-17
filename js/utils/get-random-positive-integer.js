@@ -26,6 +26,5 @@ function getRandomPositiveInteger(a, b) {
   // потому что Math.random() генерирует только дробные числа и ноль.
   return Math.floor(result);
 }
-// eslint-disable-next-line no-undef
-getRandomPositiveInteger(a, b);
 
+getRandomPositiveInteger();
