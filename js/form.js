@@ -8,7 +8,7 @@ const inactiveStateForm = () => {
     formElements.classList.add('ad-form--disabled');
   }
 };
-const inactiveStateilter = () => {
+const inactiveStatefilter = () => {
   const mapFilters = document.querySelector('.map__filters');
   mapFilters.classList.add('ad-form--disabled');
 
@@ -21,4 +21,4 @@ const inactiveStateilter = () => {
 const activeStateForm = () => {
 
 };
-export { inactiveStateForm, inactiveStateilter, activeStateForm };
+export { inactiveStateForm, inactiveStatefilter, activeStateForm };
