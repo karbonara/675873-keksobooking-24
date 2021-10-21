@@ -8,32 +8,61 @@ const inactiveStateForm = () => {
   //   formElements.classList.add('ad-form--disabled');
   // }
 
+
+  // Максимальная и минимальная длина строки
   const MIN_TITLE_LENGTH = 3;
   const MAX_TITLE_LENGTH = 100;
+
   const userTitleInput = document.querySelector('#title');
-  userTitleInput.addEventListener('input', function () {
+
+  userTitleInput.addEventListener('input', () => {
     const valueLength = userTitleInput.value.length;
+
     if (valueLength < MIN_TITLE_LENGTH) {
-      this.setCustomValidity(`Еще ${MIN_TITLE_LENGTH - valueLength} символов.`);
+      userTitleInput.setCustomValidity(`Еще ${MIN_TITLE_LENGTH - valueLength} символа.`);
     } else if (valueLength > MAX_TITLE_LENGTH) {
-      this.setCustomValidity(`Удалите лишние ${valueLength - MAX_TITLE_LENGTH} символы.`);
+      userTitleInput.setCustomValidity(`Удалите лишние ${valueLength - MAX_TITLE_LENGTH} символы.`);
     } else {
-      this.setCustomValidity('');
+      userTitleInput.setCustomValidity('');
     }
-    this.reportValidity();
+    userTitleInput.reportValidity();
   });
-
-
-  // const userTypeSelect = document.querySelector('#type');
-
-  // const housingPrice = {
-  //   BUNGALOW: 0,
-  //   FLAT: 1000,
-  //   HOTEL: 3000,
-  //   HOUSE: 5000,
-  //   PALACE: 10000,
-  // };
-
+  const addCustomValidity = (element, text) => {
+    element.setCustomValidity(text);
+    element.reportValidity();
+  };
+  const removeCustomValidity = (element) => {
+    element.setCustomValidity('');
+  };
+  const userInputType = document.querySelector('#type');
+  const userInputPrice = document.querySelector('#price');
+  // Минимальное значение жилья
+  const HOUSING_MIN_PRICE = {
+    FLAT: 1000,
+    BUNGALOW: 0,
+    HOUSE: 5000,
+    PALACE: 10000,
+    HOTEL: 3000,
+  };
+  const validatePrice = () => {
+    if (userInputPrice.value < userInputPrice.min) {
+      addCustomValidity(userInputPrice, `Минимальная цена ${userInputPrice.min}`);
+    } else {
+      removeCustomValidity(userInputPrice);
+    }
+  };
+  const setMinPriceAttributes = () => {
+    const minPrice = HOUSING_MIN_PRICE[userInputType.value.toUpperCase()];
+    userInputPrice.placeholder = minPrice;
+    userInputPrice.min = minPrice;
+  };
+  userInputPrice.addEventListener('input', () => {
+    validatePrice();
+  });
+  userInputType.addEventListener('change', () => {
+    setMinPriceAttributes();
+    validatePrice();
+  });
 };
 const inactiveStatefilter = () => {
   // const mapFilters = document.querySelector('.map__filters');
