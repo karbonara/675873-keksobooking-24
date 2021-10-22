@@ -63,6 +63,70 @@ const inactiveStateForm = () => {
     setMinPriceAttributes();
     validatePrice();
   });
+
+  const roomNumber = document.querySelector('#room_number');
+  const capacityGuests = document.querySelector('#capacity');
+
+  roomNumber.addEventListener('change', () => {
+    // Массив кнопок  количеством комнат
+    const listRoomNumbers = [...roomNumber.children];
+    // массив кнопок с личеством мест
+    const listGuests = [...capacityGuests.children];
+
+    // забираем единственную кнопку которая выбрана (value)
+    const actualRoomNumber = (listRoomNumbers.filter((el) => el.selected))[0].value;
+
+    switch (actualRoomNumber) {
+      case '1':
+        listGuests.forEach((el) => {
+          if (el.value !== '1') {
+            el.disabled = true;
+          }
+          else {
+            el.disabled = false;
+            el.selected = true;
+          }
+        });
+        break;
+
+      case '2':
+        listGuests.forEach((el) => {
+          if (el.value !== '1' && el.value !== '2') {
+            el.disabled = true;
+          }
+          else {
+            el.disabled = false;
+            el.selected = true;
+          }
+        });
+        break;
+
+      case '3':
+        listGuests.forEach((el) => {
+          if (el.value !== '1' && el.value !== '2' && el.value !== '3') {
+            el.disabled = true;
+          }
+          else {
+            el.disabled = false;
+            el.selected = true;
+          }
+        });
+        break;
+
+      case '100':
+        listGuests.forEach((el) => {
+          if (el.value !== '0') {
+            el.disabled = true;
+          }
+          else {
+            el.disabled = false;
+            el.selected = true;
+          }
+        });
+        break;
+    }
+  });
+
 };
 const inactiveStatefilter = () => {
   // const mapFilters = document.querySelector('.map__filters');
