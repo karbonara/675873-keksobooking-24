@@ -127,6 +127,52 @@ const inactiveStateForm = () => {
     }
   });
 
+  const timein = document.querySelector('#timein');
+  const timeout = document.querySelector('#timeout');
+
+  timein.addEventListener('change', () => {
+    const listTimeIn = [...timein.children];
+    const listTimeOut = [...timeout.children];
+
+    const actualTimeIn = (listTimeIn.filter((el) => el.selected))[0].value;
+
+    switch (actualTimeIn) {
+      case '12:00':
+        listTimeOut.forEach((el) => {
+          if (el.value !== '12:00') {
+            el.disabled = true;
+          }
+          else {
+            el.disabled = false;
+            el.selected = true;
+          }
+        });
+        break;
+      case '13:00':
+        listTimeOut.forEach((el) => {
+          if (el.value !== '13:00') {
+            el.disabled = true;
+          }
+          else {
+            el.disabled = false;
+            el.selected = true;
+          }
+        });
+        break;
+      case '14:00':
+        listTimeOut.forEach((el) => {
+          if (el.value !== '14:00') {
+            el.disabled = true;
+          }
+          else {
+            el.disabled = false;
+            el.selected = true;
+          }
+        });
+        break;
+    }
+  });
+
 };
 const inactiveStatefilter = () => {
   // const mapFilters = document.querySelector('.map__filters');
