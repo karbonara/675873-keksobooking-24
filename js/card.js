@@ -8,7 +8,6 @@ const createCard = () => {
     .querySelector('.popup');
   const cardUsers = createNewUsers(NUMBER_OBJECTS, printUser);
   const cardListFragment = document.createDocumentFragment();
-
   const typeHousing = {
     flat: 'Квартира',
     bungalow: 'Бунгало',
