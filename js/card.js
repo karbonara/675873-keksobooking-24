@@ -8,19 +8,6 @@ const createCard = () => {
     .querySelector('.popup');
   const cardUsers = createNewUsers(NUMBER_OBJECTS, printUser);
   const cardListFragment = document.createDocumentFragment();
-  // const typeObj = [
-  //   ['flat', 'Квартира1'],
-  //   ['bungalow', 'Бунгало'],
-  //   ['house', 'Дом'],
-  //   ['palace', 'Дворец'],
-  //   ['hotel', 'Отель'],
-  // ];
-  // const map = new Map(typeObj);
-  // const maps = function (offer) {
-  //   for (const val of map.values()) {
-  //     return val;
-  //   }
-  // };
   const typeHousing = {
     flat: 'Квартира',
     bungalow: 'Бунгало',

@@ -68,12 +68,12 @@ const inactiveStateForm = () => {
   const capacityGuests = document.querySelector('#capacity');
 
   roomNumber.addEventListener('change', () => {
-    // Массив кнопок  количеством комнат
+    // Массив кнопок с количеством комнат
     const listRoomNumbers = [...roomNumber.children];
-    // массив кнопок с личеством мест
+    // Массив кнопок с количеством мест
     const listGuests = [...capacityGuests.children];
 
-    // забираем единственную кнопку которая выбрана (value)
+    // Забираем единственную кнопку которая выбрана (value)
     const actualRoomNumber = (listRoomNumbers.filter((el) => el.selected))[0].value;
 
     switch (actualRoomNumber) {
@@ -116,6 +116,52 @@ const inactiveStateForm = () => {
       case '100':
         listGuests.forEach((el) => {
           if (el.value !== '0') {
+            el.disabled = true;
+          }
+          else {
+            el.disabled = false;
+            el.selected = true;
+          }
+        });
+        break;
+    }
+  });
+
+  const timein = document.querySelector('#timein');
+  const timeout = document.querySelector('#timeout');
+
+  timein.addEventListener('change', () => {
+    const listTimeIn = [...timein.children];
+    const listTimeOut = [...timeout.children];
+
+    const actualTimeIn = (listTimeIn.filter((el) => el.selected))[0].value;
+
+    switch (actualTimeIn) {
+      case '12:00':
+        listTimeOut.forEach((el) => {
+          if (el.value !== '12:00') {
+            el.disabled = true;
+          }
+          else {
+            el.disabled = false;
+            el.selected = true;
+          }
+        });
+        break;
+      case '13:00':
+        listTimeOut.forEach((el) => {
+          if (el.value !== '13:00') {
+            el.disabled = true;
+          }
+          else {
+            el.disabled = false;
+            el.selected = true;
+          }
+        });
+        break;
+      case '14:00':
+        listTimeOut.forEach((el) => {
+          if (el.value !== '14:00') {
             el.disabled = true;
           }
           else {
