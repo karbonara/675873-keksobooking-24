@@ -1,9 +1,10 @@
-import { createCard } from './card.js';
+
 import { inactiveStateForm, inactiveStatefilter, activeStateForm } from './form.js';
+import { maps } from './map.js';
 
 
-createCard();
 inactiveStateForm();
 activeStateForm();
 inactiveStatefilter();
 
+maps();
