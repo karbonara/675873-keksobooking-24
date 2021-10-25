@@ -1,15 +1,26 @@
 import { createCard } from './card.js';
+createCard();
 const maps = () => {
-
   const PIN_ADDRESS = {
-    lat: 35.68940,
-    lng: 139.69200,
+    lat: 35.65000,
+    lng: 139.80000,
+  };
+  const ICON_SIZE = {
+    width: 52,
+    height: 52,
+  };
+  const ICON_ANCHOR = {
+    width: 26,
+    height: 52,
   };
   const MAP_ZOOM = 10;
+  const MAIN_ICON_URL = '/img/main-pin.svg';
+  const address = document.querySelector('#address');
   const mapCanvas = document.querySelector('.map__canvas');
 
   const map = L.map(mapCanvas)
     .on('load', () => {
+      // eslint-disable-next-line no-console
       console.log('Карта инициализирована');
     })
     .setView({
@@ -23,9 +34,9 @@ const maps = () => {
   ).addTo(map);
 
   const mainPinIcon = L.icon({
-    iconUrl: '/img/main-pin.svg',
-    iconSize: [52, 52],
-    iconAnchor: [26, 52],
+    iconUrl: MAIN_ICON_URL,
+    iconSize: [ICON_SIZE.width, ICON_SIZE.height],
+    iconAnchor: [ICON_ANCHOR.width, ICON_ANCHOR.height],
   });
 
   const marker = L.marker(
@@ -38,9 +49,14 @@ const maps = () => {
       icon: mainPinIcon,
     },
   );
-  marker.addTo(map);
+  marker
+    .addTo(map);
   marker.on('moveend', (evt) => {
-    console.log(evt.target.getLatLng());
+    // Добавляет координаты в input
+    address.value = `${evt.target.toGeoJSON().geometry.coordinates}`;
+
+    // address.value = evt.target.getLatLng();
+    // console.log(evt.target.getLatLng());
   });
 
   // const points = [
@@ -72,7 +88,6 @@ const maps = () => {
 
   //   return popupElement;
   // };
-
   // points.forEach((point) => {
   //   const { lat, lng } = point;
   //   const icon = L.icon({
@@ -94,38 +109,37 @@ const maps = () => {
   //     .addTo(map)
   //     .bindPopup(createCardPopup(point));
 
-  //   marker2.on('moveend', (evt) => {
+  //   markers.on('moveend', (evt) => {
   //     console.log(evt.target.getLatLng());
   //   });
 
   // });
 
 
-  const usersMarker = (point) => {
-    point.forEach((points) => {
-      const { lat, lng } = point;
-      const icon = L.icon({
-        iconUrl: '/img/pin.svg',
-        iconSize: [40, 40],
-        iconAnchor: [20, 40],
-      });
-      const markers = L.marker(
-        {
-          lat,
-          lng,
-        },
-        {
-          icon,
-          draggable: true,
-        },
-      );
-      markers
-        .addTo(map)
-        .bindPopup(createCard(points));
-    });
-  };
-
+  // const usersMarker = (point) => {
+  //   point.forEach((points) => {
+  //     const { lat, lng } = point;
+  //     const icon = L.icon({
+  //       iconUrl: '/img/pin.svg',
+  //       iconSize: [40, 40],
+  //       iconAnchor: [20, 40],
+  //     });
+  //     const markers = L.marker(
+  //       {
+  //         lat,
+  //         lng,
+  //       },
+  //       {
+  //         icon,
+  //         draggable: true,
+  //       },
+  //     );
+  //     markers
+  //       .addTo(map)
+  //       .bindPopup(createCard(points));
+  //   });
+  // };
+  // usersMarker();
 };
-
 export { maps };
 
