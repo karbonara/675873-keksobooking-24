@@ -21,7 +21,7 @@ const MIN_LNG = 139.70000;
 const MAX_LNG = 139.80000;
 const MIN_LAT = 35.65000;
 const MAX_LAT = 35.70000;
-const NUMBER_OBJECTS = 1;
+const NUMBER_OBJECTS = 10;
 
 // Переменная со случайными аватарками пользователя
 const randomAvatar = getRandomCoordinates(MIN_AVATARS, MAX_AVATARS);

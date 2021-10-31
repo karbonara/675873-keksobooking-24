@@ -6,4 +6,3 @@ maps();
 inactiveStateForm();
 activeStateForm();
 inactiveStatefilter();
-

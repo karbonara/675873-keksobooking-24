@@ -16,6 +16,7 @@ const maps = () => {
   const MAP_ZOOM = 10;
   const MAIN_ICON_URL = '/img/main-pin.svg';
   const address = document.querySelector('#address');
+  address.setAttribute('disabled', 'disabled');
   const mapCanvas = document.querySelector('#map-canvas');
 
   const map = L.map(mapCanvas)
@@ -68,45 +69,30 @@ const maps = () => {
     lng: 139.883259,
   };
 
-  const point = (points) => {
-    const markers = L.marker(
-      {
-        lat: PIN_ADDRESS_USERS.lat,
-        lng: PIN_ADDRESS_USERS.lng,
-      },
-      {
-        draggable: true,
-        icon: PIN_USERS,
-      },
-    );
-    markers
-      .addTo(map)
-      .bindPopup(createCard(points));
-  };
-  point();
-  // console.log(point());
+  const point = () => {
 
-  // const point = (points) => {
-  //   const cardList = createCard(points);
-  //   points.forEach((elem) => {
-  //     const markers = L.marker(
-  //       {
-  //         lat: PIN_ADDRESS_USERS.lat,
-  //         lng: PIN_ADDRESS_USERS.lng,
-  //       },
-  //       {
-  //         draggable: true,
-  //         icon: PIN_USERS,
-  //       },
-  //     );
-  //     markers
-  //       .addTo(map)
-  //       .bindPopup(cardList(elem));
-  //   });
-  // };
-  // point();
+    const cardList = Array.from(createCard);
+
+    cardList.forEach((elem) => {
+      const markers = L.marker(
+        {
+          lat: PIN_ADDRESS_USERS.lat,
+          lng: PIN_ADDRESS_USERS.lng,
+        },
+        {
+          draggable: true,
+          icon: PIN_USERS,
+        },
+      );
+
+      markers
+        .addTo(map)
+        .bindPopup(createCard(elem));
+    });
+  };
+  point(createCard);
+
 
 };
 
 export { maps };
-
