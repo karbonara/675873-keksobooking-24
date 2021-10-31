@@ -64,6 +64,6 @@ return принимает 2 параметра
 const createNewUsers = function (number, users) {
   return Array.from({ length: number }, users);
 };
-createNewUsers(NUMBER_OBJECTS, printUser);
+// createNewUsers(NUMBER_OBJECTS, printUser);
 
 export { createNewUsers, NUMBER_OBJECTS, printUser };

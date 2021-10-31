@@ -2,12 +2,13 @@ import { createNewUsers, NUMBER_OBJECTS, printUser } from './data.js';
 
 // Создание шаблона объявления
 const createCard = () => {
-  const mapElement = document.querySelector('#map-canvas');
+  // const mapElement = document.querySelector('#map-canvas');
   const cardTemplate = document.querySelector('#card')
     .content
     .querySelector('.popup');
   const cardUsers = createNewUsers(NUMBER_OBJECTS, printUser);
-  const cardListFragment = document.createDocumentFragment();
+  // const cardListFragment = document.createDocumentFragment();
+  const cardListFragment = [];
   const typeHousing = {
     flat: 'Квартира',
     bungalow: 'Бунгало',
@@ -53,9 +54,12 @@ const createCard = () => {
     const photos = cardElement.querySelector('.popup__photo');
     photos.src = offer.photos;
 
-    cardListFragment.appendChild(cardElement);
+    // cardListFragment.appendChild(cardElement);
+    cardListFragment.push(cardElement);
   });
-  mapElement.appendChild(cardListFragment);
+
+  // mapElement.appendChild(cardListFragment);
+  return cardListFragment;
 };
 
 export { createCard };

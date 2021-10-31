@@ -70,28 +70,26 @@ const maps = () => {
   };
 
   const point = () => {
-
-    const cardList = Array.from(createCard);
+    const cardList = createCard();
 
     cardList.forEach((elem) => {
+
       const markers = L.marker(
         {
           lat: PIN_ADDRESS_USERS.lat,
           lng: PIN_ADDRESS_USERS.lng,
         },
         {
-          draggable: true,
           icon: PIN_USERS,
         },
       );
 
       markers
         .addTo(map)
-        .bindPopup(createCard(elem));
+        .bindPopup(elem);
     });
   };
   point(createCard);
-
 
 };
 
