@@ -22,7 +22,7 @@ const maps = () => {
   const map = L.map(mapCanvas)
     .on('load', () => {
       // eslint-disable-next-line no-console
-      console.log('Карта инициализирована');
+      // console.log('Карта инициализирована');
     })
     .setView({
       lat: PIN_ADDRESS.lat,
@@ -64,29 +64,34 @@ const maps = () => {
     iconSize: [ICON_SIZE.width, ICON_SIZE.height],
     iconAnchor: [ICON_ANCHOR.width, ICON_ANCHOR.height],
   });
+
+
   const PIN_ADDRESS_USERS = {
     lat: 35.658792,
     lng: 139.883259,
   };
 
+
   const point = () => {
     const cardList = createCard();
 
     cardList.forEach((elem) => {
-
+      // const { lat, lng } = elem;
+      // console.log({ lat, lng });
       const markers = L.marker(
         {
           lat: PIN_ADDRESS_USERS.lat,
           lng: PIN_ADDRESS_USERS.lng,
         },
         {
+          draggable: true,
           icon: PIN_USERS,
         },
       );
-
       markers
         .addTo(map)
         .bindPopup(elem);
+
     });
   };
   point(createCard);
