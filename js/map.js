@@ -1,3 +1,4 @@
+// import { createCard, addressMarker } from './card.js';
 import { createCard } from './card.js';
 
 const maps = () => {
@@ -66,6 +67,11 @@ const maps = () => {
   });
 
 
+  // const PIN_ADDRESS_USERS = {
+  //   lat: addressMarker[0],
+  //   lng: addressMarker[1],
+  // };
+
   const PIN_ADDRESS_USERS = {
     lat: 35.658792,
     lng: 139.883259,
@@ -73,11 +79,11 @@ const maps = () => {
 
 
   const point = () => {
+
     const cardList = createCard();
 
     cardList.forEach((elem) => {
-      // const { lat, lng } = elem;
-      // console.log({ lat, lng });
+
       const markers = L.marker(
         {
           lat: PIN_ADDRESS_USERS.lat,
