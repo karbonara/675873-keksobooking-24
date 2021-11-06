@@ -81,6 +81,7 @@ const maps = () => {
   const point = () => {
 
     const cardList = createCard();
+    // console.log(createCard());
 
     cardList.forEach((elem) => {
 
@@ -90,7 +91,6 @@ const maps = () => {
           lng: PIN_ADDRESS_USERS.lng,
         },
         {
-          draggable: true,
           icon: PIN_USERS,
         },
       );
