@@ -1,4 +1,5 @@
-// import { createNewUsers, NUMBER_OBJECTS, printUser } from './data.js';
+import { dataFetch } from './data.js';
+
 
 // const addressMarker = (printUser().offer.address).split(', ');
 
@@ -20,14 +21,7 @@ const createCard = () => {
     palace: 'Дворец',
     hotel: 'Отель',
   };
-  const URL = 'https://24.javascript.pages.academy/keksobooking/data';
 
-  async function dataFetch() {
-    const response = await fetch(URL);
-    const data = await response.json();
-    console.log(data);
-  }
-  dataFetch();
 
   // const dataMain = [...dataFetch];
   const dataMain = dataFetch();
