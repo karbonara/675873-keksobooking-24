@@ -1,3 +1,4 @@
+import { renderSimilarList } from './card.js';
 /* eslint-disable no-console */
 const LOAD_URL = 'https://24.javascript.pages.academy/keksobooking/data';
 
@@ -8,13 +9,19 @@ const LOAD_URL = 'https://24.javascript.pages.academy/keksobooking/data';
 //   console.log(result);
 // };
 
-const dataFetch = (renderCards) => {
-  fetch(LOAD_URL)
-    .then((response) => response.json())
-    .then((result) => {
-      renderCards(result);
-    });
-};
+// const dataFetch = (renderSimilarList) => {
+//   fetch(LOAD_URL)
+//     .then((response) => response.json())
+//     .then((similarUsers) => {
+//       renderSimilarList(similarUsers);
+//     });
+// };
+
+fetch(LOAD_URL)
+  .then((response) => response.json())
+  .then((similarUsers) => {
+    renderSimilarList(similarUsers);
+  });
 
 
-export { dataFetch };
+// export { dataFetch };

@@ -1,5 +1,5 @@
 // import { createCard, addressMarker } from './card.js';
-import { createCard } from './card.js';
+import { renderSimilarList } from './card.js';
 
 const maps = () => {
   const PIN_ADDRESS = {
@@ -80,7 +80,7 @@ const maps = () => {
 
   const point = () => {
 
-    const cardList = createCard();
+    const cardList = renderSimilarList();
     // console.log(createCard());
 
     cardList.forEach((elem) => {
@@ -100,7 +100,7 @@ const maps = () => {
 
     });
   };
-  point(createCard);
+  point(renderSimilarList);
 
 };
 
