@@ -1,5 +1,6 @@
 import { dataFetch } from './data.js';
 
+// console.log(dataFetch());
 
 // const addressMarker = (printUser().offer.address).split(', ');
 
